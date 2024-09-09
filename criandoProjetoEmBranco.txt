@@ -1,0 +1,12 @@
+Criando projeto em branco:
+
+npx create-expo-app nomeprojeto --template blank
+
+cd nomeprojeto
+
+npx expo install react-dom react-native-web @expo/metro-runtime
+
+npx expo start
+
+Observação: o arquivo App.js contém todo o código inicial da aplicação.
+
