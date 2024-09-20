@@ -56,6 +56,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     },
     textInput: {
-margin: 5,
+    margin: 5,
     },
     });
