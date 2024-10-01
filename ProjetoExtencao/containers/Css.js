@@ -1,21 +1,3 @@
-import * as React from 'react';
-import { StyleSheet, } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
-import Entrada from '/containers/Entrada';
-
-const Stack = createNativeStackNavigator();
-
-function App() {
-    return (
-        <NavigationContainer>
-            <Stack.Navigator>
-                <Stack.Screen name="Entrada" component={Entrada} />
-            </Stack.Navigator>
-        </NavigationContainer>
-);
-};
 
 
 const styles= StyleSheet.create({
@@ -57,4 +39,4 @@ const styles= StyleSheet.create({
     },
   });
 
-export default App;
+  export default CSS;
