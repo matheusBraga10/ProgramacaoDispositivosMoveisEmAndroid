@@ -4,10 +4,6 @@ import dynaconf
 import datetime
 
 app = Flask(__name__)
-settings = FlaskDynaconf(
-  app,
-  settings_files=["settings.toml", ".secrets.toml"],
-)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = settings.DATABASE_URI
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = settings.MODIFICATIONS
