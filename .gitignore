@@ -1,0 +1,8 @@
+﻿################################################################################
+# Este arquivo .gitignore foi criado automaticamente pelo Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/ProgramacaoDispositivosMoveisEmAndroid/FileContentIndex/merges/7c18c012-10ff-494c-bc13-5d5ed1f8d247.vsidx
+/.vs/ProgramacaoDispositivosMoveisEmAndroid/FileContentIndex/1968de3e-fe67-49a8-b5d6-05dcc1b48e49.vsidx
+/.vs
+/AmbienteFlask/api-flask-smartmail/.idea/workspace.xml
