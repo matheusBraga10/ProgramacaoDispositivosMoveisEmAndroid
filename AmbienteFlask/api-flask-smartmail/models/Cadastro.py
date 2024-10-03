@@ -13,5 +13,34 @@ class Cadastro(db.Model):
     cidade = db.Column(db.String(80), unique=True, nullable=False)
     estado = db.Column(db.String(80), unique=True, nullable=False)
     senha1 = db.Column(db.String(120), nullable=False)
-    def __repr__(self):
-            return '<User %r>' % self.username
+    def __init__(self):
+        self.criar_tabela()
+
+    def criar_tabela():
+        conn = sqlite3.connect('meubanco.db')
+        cursor = conn.cursor()
+        try:
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS Cadastro (
+                    id INTEGER PRIMARY KEY,
+                    nome TEXT NOT NULL,
+                    sobrenome TEXT NOT NULL,
+                    cpf INTEGER NULL, 
+                    email TEXT NOT NULL,
+                    telefone INTEGER NULL,
+                    cep INTEGER NULL,
+                    rua TEXT NULL,
+                    N_ap INTEGER NULL,
+                    bairro TEXT NULL,
+                    numero TEXT NULL,
+                    cidade TEXT NULL,
+                    estado TEXT NULL,
+                    senha1 TEXT NULL
+                )
+            """)
+            conn.commit()
+            print("Tabela criada com sucesso.")
+        except sqlite3.Error as e:
+            print(f"Erro ao criar tabela: {e}")
+        finally:
+            conn.close()
