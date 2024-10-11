@@ -367,7 +367,7 @@ def inserir_entrega():
 
             connHttp = http.client.HTTPSConnection("192.168.0.144")
 
-            connHttp.request("GET")
+            connHttp.request("GET", "/")
 
             # Obtém a resposta
             res = connHttp.getresponse()
@@ -389,7 +389,7 @@ def inserir_entrega():
         except sqlite3.OperationalError as e:
             if "database is locked" in str(e):
                 print("Banco de dados bloqueado, tentando novamente...")
-                time.sleep(1)  # Aguardar 1 segundo antes de tentar novamente
+                time.sleep(1)
             else:
                 return jsonify({'message': f"Erro ao inserir entrega: {e}"}), 500
         finally:
@@ -414,13 +414,6 @@ def atualizar_entrega():
     try:
         # Data atual para a retirada
         data_saida = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-        connHttp = http.client.HTTPSConnection("192.168.0.144")
-
-        connHttp.request("GET")
-
-        res = connHttp.getresponse()
-        data = res.read()
 
         cursor.execute("""
             UPDATE Tabela_de_Entregas 
@@ -453,18 +446,15 @@ def verificar_codigo():
     cursor = conn.cursor()
 
     try:
-        # Verificando se o código existe na tabela de entregas
         cursor.execute("SELECT codigo_gerado FROM Tabela_de_Entregas WHERE codigo_gerado = ?", (codigo_digitado,))
         resultado = cursor.fetchone()
 
         if resultado:
-            # Obtendo morador_id e armario_id
             cursor.execute("SELECT morador_id, armario_id FROM Tabela_de_Entregas WHERE codigo_gerado = ?", (codigo_digitado,))
             entrega = cursor.fetchone()
 
             if entrega:
                 morador_id, armario_id = entrega
-                # Simulando a abertura da tela de retirado
                 return jsonify({
                     'message': f"Código {codigo_digitado} encontrado no armário {armario_id}.",
                     'morador_id': morador_id,
@@ -496,7 +486,6 @@ def atualizar_entrega():
     try:
         data_saida = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-        # Atualizando a entrega na tabela
         cursor.execute("""
             UPDATE Tabela_de_Entregas 
             SET data_retirada = ?, status = ? 
