@@ -1,0 +1,10 @@
+
+cd nomeDoProjeto
+
+npx expo start
+
+no pronpt de comando entre na pasta de backend e digite
+
+python -m flask run
+
+python app.py
