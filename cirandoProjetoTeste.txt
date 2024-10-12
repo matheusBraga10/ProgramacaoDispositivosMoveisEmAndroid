@@ -1,0 +1,14 @@
+Digite no terminal ou powershell como ADM o código abaixo:
+
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope CurrentUser
+
+npm -v
+
+npx create-expo-app@latest
+
+nomeDoProjeto
+
+cd nomeDoProjeto
+
+npx expo start
+
