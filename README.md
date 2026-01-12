@@ -4,7 +4,7 @@
 
 # Secure-Mail-IoT: Sistema IoT Seguro com Biometria
 
-**Projeto acadêmico premiado** da graduação **Estácio**: Sistema de **email seguro** com **autenticação biométrica** (NodeMCU ESP8266 + sensor de impressão digital). App **Android** + **React Native** + backend **C**.[file:2][attached_file:1]
+**Projeto acadêmico premiado** da graduação **Estácio**: Sistema de **email seguro** com **autenticação biométrica** (NodeMCU ESP8266 + sensor de impressão digital). App **Android** + **React Native** + backend **C**.
 
 ## 🎯 Funcionalidades
 - **Autenticação biométrica**: Sensor R307 (99.7% precisão)
